@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: subconverter
+    env: docker
+    # 使用官方稳定镜像，避免第三方镜像失效
+    docker_image: tindy2013/subconverter:latest
+    # Render 会自动映射容器 25500 到 80 端口
+    port: 25500
+    # 健康检查，确保 Render 识别服务已启动
+    health_check_path: /version
+    plan: free
+    region: singapore  # 可选：hongkong / oregon
